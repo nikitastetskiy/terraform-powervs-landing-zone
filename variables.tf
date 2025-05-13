@@ -41,7 +41,7 @@ variable "vpc_cidr_block" {
 variable "deploy_vsi" {
   description = "If marked as true, then the VSI is deployed"
   type        = bool
-  default = true
+  default = false
 }
 
 ### VPN client-to-site + Secrets Manager
