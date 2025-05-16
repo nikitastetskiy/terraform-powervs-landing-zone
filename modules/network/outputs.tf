@@ -1,16 +1,14 @@
-output "delete_command" {
-  description = "How to delete the trial Secrets Manager instance"
-  value       = "To delete your trial Secrets Manager, run: ibmcloud resource reclamation-delete"
+output "vpn_server_private_ip" {
+  description = "The private IP address assigned to the VPN server’s network interface."
+  value       = ibm_is_vpn_server.vpn_client.private_ips[0].address
 }
 
-output "name" {
-  value = data.ibm_sm_private_certificate.vpn_client_cert
+output "vpn_server_hostname" {
+  description = "Hostname or public endpoint that VPN clients should use to connect."
+  value       = ibm_is_vpn_server.vpn_client.hostname
 }
 
-# output "name" {
-#   value = ibm_is_vpn_server.vpn_client.private_ips[0].address
-# }
-
-# output "vpn2" {
-#   value = ibm_is_vpn_server.vpn_client.hostname
-# }
+output "openvpn_bundle_path" {
+  description = "Local path to the generated .ovpn client bundle."
+  value       = local_file.openvpn_bundle.filename
+}
