@@ -60,8 +60,8 @@ A Terraform configuration to deploy a simple IBM PowerVS landing zone:
 
 ## CIDR Choices
 
-* **VPC CIDR (`var.vpc_cidr_block`)**: A /22 block (e.g. `10.10.0.0/22`) giving 1 024 IPs for your VPC.
-* **Edge Subnet**: Uses the full VPC block so all 1 024 addresses live in one subnet.
+* **VPC CIDR (`var.vpc_cidr_block`)**: A /24 block (`10.0.0.0/24`) giving 256 IPs for your VPC.
+* **Edge Subnet**: Uses the full VPC block so all 256 addresses live in one subnet.
 * **PowerVS VLAN (`10.0.10.0/24`)**: A dedicated /24 network (256 IPs) for your PowerVS instances.
 * **VPN Client Pool (`10.5.0.0/21`)**: A /21 range (2 048 IPs) reserved for VPN users, supporting up to \~2 000 concurrent clients.
 
