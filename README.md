@@ -7,6 +7,8 @@ A Terraform configuration to deploy a simple IBM PowerVS landing zone:
 * **Client-to-site VPN** using IBM Secrets Manager for certificates
 * **Transit Gateway** linking VPC and PowerVS network
 
+![](./PowerVS-landing-zone.png)
+
 ## Prerequisites
 
 * Terraform 1.9+
@@ -18,7 +20,7 @@ A Terraform configuration to deploy a simple IBM PowerVS landing zone:
 1. Clone the repo:
 
    ```bash
-   git clone https://github.com/your-org/terraform-powervs-landing-zone.git
+   git clone https://github.com/nikitastetskiy/terraform-powervs-landing-zone.git
    cd terraform-powervs-landing-zone
    ```
 2. Initialize Terraform:
@@ -26,18 +28,25 @@ A Terraform configuration to deploy a simple IBM PowerVS landing zone:
    ```bash
    terraform init
    ```
-3. Review and edit `variables.tf` (or create a `.tfvars` file) to set:
+
+3. Export you API key:
+
+    ```bash
+    export TF_VAR_ibmcloud_api_key="…"
+    ```
+
+4. Review and edit `variables.tf` (or create a `.tfvars` file) to set:
 
    * `prefix`, `vpc_region`, `vpc_zone`
    * `resource_group`, `ibmcloud_api_key`
    * `ssh_file_public_key`, `vpc_cidr_block`, `deploy_vsi` (optional)
-4. Plan & apply:
+5. Plan & apply:
 
    ```bash
    terraform plan
    terraform apply
    ```
-5. When done, destroy all resources:
+6. When done, destroy all resources:
 
    ```bash
    terraform destroy
